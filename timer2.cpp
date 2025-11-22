@@ -8,6 +8,18 @@ class Timer
 private: //member data通常設成private，僅同class member function可直接存取
     time_t start_ts;
 public:
+    //Constructor:名稱和class一樣，沒用return type，物件初始化用的!!!!!(通常設為public)
+    //function overloading:function name可一樣，但參數個數要不同，即可被視為不同function
+    Timer(){
+        start_ts = 0;
+    }
+    Timer(time_t s){
+        setStart(s);
+    }
+    
+    void start(){ //按下碼表
+        start_ts = time(NULL);
+    }
     void setStart(time_t ts){
         start_ts = ts;
     }
@@ -39,6 +51,17 @@ int main(){
 
     cout << "BOOM!!" << endl;
     cout << "Elaps time(after BOOM): " << tmr.getElapsedTime() << endl;
+
+
+    Timer tmr1;
+    Timer tmr2(time(NULL));
+
+    tmr1.start();
+    sleep(2);
+    cout << "Start time1: " << tmr1.getStart() << endl;
+    cout << "Elaps time1: " << tmr1.getElapsedTime() << endl;
+    cout << "Start time2: " << tmr2.getStart() << endl;
+    cout << "Elaps time2: " << tmr2.getElapsedTime() << endl;
 
     return 0;
 }
