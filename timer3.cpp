@@ -31,8 +31,8 @@ int main()
 }
 
 /*
- * g++ -c timer3 timer3_implementation.cpp (-c = compile only)
- * g++ -c timer3 timer3.cpp
+ * g++ -c timer3_implementation.cpp (-c = compile only)
+ * g++ -c timer3.cpp
  * g++ -o timer3 timer3.o timer3_implementation.o
  * ./timer3
  */
